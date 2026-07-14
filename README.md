@@ -1,92 +1,259 @@
 # Medical Leave Management System
 
-A web-based system to automate medical leave applications and approvals in educational institutions.
+The Medical Leave Management System is a web-based application developed to simplify and automate the medical leave application and approval process in educational institutions. It replaces the traditional paper-based workflow with a centralized digital platform where students can submit leave requests along with supporting medical documents, and authorized faculty members can review and approve them through a structured approval workflow.
 
-## 📋 **Introduction**
-
-Traditionally, medical leave processing involves physical forms and multiple manual approvals, which is slow and error-prone.  
-This project streamlines the entire workflow with a centralized online portal.
+The application is developed using PHP, MySQL, HTML, CSS, and Bootstrap, providing role-based access, secure authentication, and real-time leave status tracking.
 
 ---
 
-## ✅ **Features**
+## Features
 
-- **Role-based login:** Student, Doctor, Teacher, HOD, Dean
-- **Online application:** Students can submit leave requests with supporting documents
-- **Sequential approvals:** Doctor → Dean → HOD → Teacher
-- **Live status tracking:** Students and faculty can view current status and history
-- **Responsive UI:** Clean, user-friendly design using Bootstrap 5
-
----
-
-## 🎯 **Modules Implemented**
-
-- **Login System:** Secure, role-based access validated via MySQL
-- **Student Panel:** Apply for leave, upload documents, check request status
-- **Doctor Panel:** Approve/reject requests
-- **Dean, HOD, Teacher Panels:** Approve/reject in sequence
-- **Leave Approval Chain:** Automated status update after all approvals
+- Secure role-based authentication
+- Student registration and login
+- Online medical leave application
+- Medical document upload
+- Multi-level leave approval workflow
+- Real-time leave status tracking
+- Leave request history
+- Separate dashboards for different user roles
+- Responsive user interface using Bootstrap
 
 ---
 
-## 💻 **Technologies Used**
+## User Roles
 
-| Component | Description |
-|----------------|-------------------------------------------|
-| **HTML/CSS** | Frontend structure & styling |
-| **Bootstrap 5** | Responsive design framework |
-| **PHP** | Server-side scripting |
-| **MySQL** | Backend database |
-| **XAMPP** | Local server (Apache & MySQL) |
+The system provides dedicated dashboards for the following users:
 
----
+- Student
+- Doctor
+- Teacher
+- Head of Department (HOD)
+- Dean
 
-## 🗂️ **Database Design**
-
-- `users` table: Stores user credentials & roles  
-- `leave_requests` table: Tracks leave applications & status  
-- `uploads` table: Stores uploaded documents
+Each user can access only the functionalities assigned to their role.
 
 ---
 
-## ⚙️ **How to Run**
+## Modules
 
-1. Clone or download this repository.
-2. Place project files in your `htdocs` folder (if using XAMPP).
-3. Start **Apache** and **MySQL** using XAMPP Control Panel.
-4. Import the provided `.sql` file to set up the database.
-5. Open your browser and navigate to `http://localhost/your-project-folder`.
+### Authentication
+
+- User Registration
+- Secure Login
+- Logout
+- Session Management
+
+### Student Module
+
+- Submit medical leave requests
+- Upload supporting medical documents
+- Track application status
+- View leave history
+
+### Doctor Module
+
+- Review leave requests
+- Approve or reject applications
+
+### Dean Module
+
+- Review doctor-approved requests
+- Approve or reject applications
+
+### HOD Module
+
+- Review dean-approved requests
+- Approve or reject applications
+
+### Teacher Module
+
+- Review HOD-approved requests
+- Approve or reject applications
 
 ---
 
-## ✅ **Output & Testing**
+## Leave Approval Workflow
 
-- Student submits request → Status is "Pending"
-- Doctor approves → Status updated
-- Dean, HOD, Teacher approve in sequence
-- After final approval → Status auto-updated to "Approved"
+```text
+Student
+    │
+    ▼
+Doctor Review
+    │
+    ▼
+Dean Approval
+    │
+    ▼
+HOD Approval
+    │
+    ▼
+Teacher Approval
+    │
+    ▼
+Final Status Updated
+```
+
+---
+
+## Technologies Used
+
+### Frontend
+
+- HTML5
+- CSS3
+- Bootstrap 5
+
+### Backend
+
+- PHP
+
+### Database
+
+- MySQL
+
+### Development Environment
+
+- XAMPP
+- Apache
 
 ---
 
-## 🚀 **Future Enhancements**
+## Project Structure
 
-- OTP or biometric login
-- SMS/email notifications on approvals
-- Admin dashboard for user management
-- Reports export (PDF/Excel)
-- Analytics and charts for leave trends
+```text
+Medical_Leave_Management_System/
+│
+├── auth/                 # Authentication and session management
+├── config/               # Database configuration
+├── dashboards/           # Role-based dashboards
+├── leave/                # Leave application and approval modules
+├── medical/              # Medical document handling
+├── screenshots/          # Project screenshots
+├── index.php             # Application entry point
+├── medical.sql           # Database schema
+└── README.md
+```
+
+---
+
+## Database
+
+The application uses MySQL for storing user information, leave requests, and uploaded medical documents.
+
+### Main Tables
+
+### users
+
+Stores user credentials and role information.
+
+### leave_requests
+
+Stores leave applications and approval status.
+
+### uploads
+
+Stores uploaded medical documents.
 
 ---
 
-## 📚 **References**
+## Installation
 
-- [PHP Manual](https://www.php.net/manual/en/)
-- [MySQL Documentation](https://dev.mysql.com/doc/)
-- [Bootstrap 5](https://getbootstrap.com)
-- [W3Schools](https://www.w3schools.com/)
-- [XAMPP](https://www.apachefriends.org/)
+### Clone the repository
+
+```bash
+git clone https://github.com/MahimaSinghRathore/medical-leave-management-system.git
+```
+
+### Move the project
+
+Copy the project folder into the **htdocs** directory.
+
+Example:
+
+```
+C:\xampp\htdocs\
+```
+
+### Start XAMPP
+
+Start the following services:
+
+- Apache
+- MySQL
+
+### Import the database
+
+Open **phpMyAdmin** and import:
+
+```
+medical.sql
+```
+
+### Configure the database
+
+Update the database credentials inside the configuration file if required.
+
+### Run the application
+
+Open your browser and visit:
+
+```
+http://localhost/Medical_Leave_Management_System/
+```
 
 ---
-## 👥 Author
-Mahima Singh
 
+## Screenshots
+
+Add screenshots of the application inside the **screenshots** folder.
+
+Example:
+
+- Login Page
+- Student Dashboard
+- Doctor Dashboard
+- Leave Application Form
+- Leave History
+- Approval Dashboard
+
+---
+
+## Applications
+
+- College Leave Management
+- University Medical Leave Portal
+- School Leave Approval System
+- Educational Institution Management
+- Digital Leave Processing
+
+---
+
+## Future Enhancements
+
+- Admin Dashboard
+- Email notifications
+- SMS notifications
+- OTP-based authentication
+- PDF report generation
+- Excel export
+- Analytics dashboard
+- Leave statistics and charts
+- Cloud deployment
+
+---
+
+## Author
+
+**Mahima Singh**
+
+B.Tech Computer Science Engineering
+
+Jaypee University of Information Technology (JUIT)
+
+GitHub: https://github.com/MahimaSinghRathore
+
+---
+
+## License
+
+This project was developed for educational purposes to demonstrate web application development using PHP, MySQL, and Bootstrap.
